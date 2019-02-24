@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans >
+	<bean id="triangle" class="com.morningstar.beanpostprocessor.Triangle" autowire="byName">
+		<!-- <property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property> -->
+	</bean>
+	
+	<bean id="pointA" class="com.morningstar.beanpostprocessor.Point">
+		<property name="x" value="${pointA.pointX}"></property>
+		<property name="y" value="${pointA.pointY}"></property>
+	</bean>
+	
+	<bean id="pointB" class="com.morningstar.beanpostprocessor.Point">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointC" class="com.morningstar.beanpostprocessor.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<!-- <bean class="com.morningstar.beanpostprocessor.DisplayNameBeanPostProcessor"></bean> -->
+	<bean class="com.morningstar.beanpostprocessor.MyBeanFactoryPP"></bean>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties">
+			<!-- <value>classpath:pointsconfig.properties</value> -->
+		</property>
+	</bean>
+</beans>

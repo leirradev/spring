@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans >
+	<bean id="triangle" class="com.morningstar.codetointerface.Triangle" autowire="byName">
+		<!-- <property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property> -->
+	</bean>
+	
+	<bean id="pointA" class="com.morningstar.codetointerface.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointB" class="com.morningstar.codetointerface.Point">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointC" class="com.morningstar.codetointerface.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="circle" class="com.morningstar.codetointerface.Circle">
+		<property name="center" ref="pointA"></property>
+	</bean>
+	
+	<!-- <bean class="com.morningstar.codetointerface.DisplayNameBeanPostProcessor"></bean> -->
+	<bean class="com.morningstar.codetointerface.MyBeanFactoryPP"></bean>
+	
+</beans>

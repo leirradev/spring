@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- namespace required for spring, springbean, context, springcontext -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<!-- <bean id="triangle" class="com.morningstar.annotations.Triangle">
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean> -->
+	
+	<!-- <bean id="center" class="com.morningstar.annotations.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean> -->
+	
+	<bean id="pointA" class="com.morningstar.annotations.Point">
+		<qualifier value="circleRelated"/>
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointB" class="com.morningstar.annotations.Point">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="center" class="com.morningstar.annotations.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<!-- <bean id="circle" class="com.morningstar.annotations.Circle"></bean> -->
+	
+	<!-- beanpostprocessor do validation on the back end -->
+	<!-- <bean class="com.morningstar.annotations.DisplayNameBeanPostProcessor"></bean> -->
+	
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean> -->
+	
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean> -->
+	
+	<!-- <bean class="com.morningstar.annotations.MyBeanFactoryPP"></bean> -->
+	
+	<context:annotation-config/>
+	
+	<context:component-scan base-package="com.morningstar.annotations"/>
+</beans>

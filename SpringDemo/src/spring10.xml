@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="parentTriangle" class="com.morningstar.beandefinheritance.Triangle" abstract="true">
+		<property name="points">
+			<list>
+				<ref bean="pointA"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="triangle" class="com.morningstar.beandefinheritance.Triangle" parent="parentTriangle">
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="triangle2" class="com.morningstar.beandefinheritance.Triangle" parent="parentTriangle">
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointC"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="pointA" class="com.morningstar.beandefinheritance.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointB" class="com.morningstar.beandefinheritance.Point">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointC" class="com.morningstar.beandefinheritance.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+</beans>
